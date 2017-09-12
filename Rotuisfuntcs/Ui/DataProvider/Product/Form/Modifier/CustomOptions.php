@@ -3,7 +3,7 @@
  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Reiz\Rotuisfuntcs\Ui\DataProvider\Catalog\Product\Form\Modifier;
+namespace Reiz\Rotuisfuntcs\Ui\DataProvider\Product\Form\Modifier;
 
 use Magento\Catalog\Model\Locator\LocatorInterface;
 use Magento\Store\Model\StoreManagerInterface;
@@ -50,8 +50,6 @@ class CustomOptions extends \Magento\Catalog\Ui\DataProvider\Product\Form\Modifi
 
             $options[$index] = $this->formatPriceByPath(static::FIELD_PRICE_NAME, $option->getData());
 
-            
-
             $values = $option->getValues() ?: [];
 
             /** @var \Magento\Catalog\Model\Product\Option $value */
@@ -67,7 +65,6 @@ class CustomOptions extends \Magento\Catalog\Ui\DataProvider\Product\Form\Modifi
 	                    $value->getData()
 	                );
 	            }
-	            echo $varPrint;
             }else{
             	foreach ($values as $value) {
 	                $options[$index][static::GRID_TYPE_SELECT_NAME][] = $this->formatPriceByPath(
@@ -174,8 +171,7 @@ class CustomOptions extends \Magento\Catalog\Ui\DataProvider\Product\Form\Modifi
                                 static::FIELD_SORT_ORDER_NAME => $this->getPositionFieldConfig(40),
                                 static::CONTAINER_COMMON_NAME => $this->getCommonContainerConfig(10),
                                 static::CONTAINER_TYPE_STATIC_NAME => $this->getStaticTypeContainerConfig(20),
-                                static::GRID_TYPE_SELECT_NAME => $this->getSelectTypeGridConfig(30),
-                                static::GRID_TYPE_SELECT_CUSTOM => $this->getSelectTypeGridCustom(40)
+                                static::GRID_TYPE_SELECT_NAME => $this->getSelectTypeGridConfig(30)
                             ]
                         ],
                     ]

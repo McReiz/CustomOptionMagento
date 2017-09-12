@@ -2,9 +2,11 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 	<preference 
 		for="Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\Option" 
-		type="Reiz\Rotuisfuntcs\Block\Adminhtml\Product\Edit\Tab\Options\Option"/>
+		type="Reiz\Rotuisfuntcs\Block\Adminhtml\Product\Edit\Tab\Options\Option" />
 	<preference 
 		for="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\CustomOptions" 
-		type="Reiz\Rotuisfuntcs\Ui\DataProvider\Catalog\Product\Form\Modifier\CustomOptions" />
-	<preference for="Magento\Catalog\Model\Product\Option" type="Reiz\Rotuisfuntcs\Model\Product\Option" />
+		type="Reiz\Rotuisfuntcs\Ui\DataProvider\Product\Form\Modifier\CustomOptions" />
+	<preference 
+		for="Magento\Catalog\Model\Product\Option"
+		type="Reiz\Rotuisfuntcs\Model\Product\Option" />
 </config>

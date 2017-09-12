@@ -73,7 +73,7 @@ class Option extends \Magento\Catalog\Model\Product\Option implements ProductCus
         $group = $this->getGroupByType($type);
         if (!empty($group)) {
             return $this->optionTypeFactory->create(
-                'Magento\Catalog\Model\Product\Option\Type\\' . $this->string->upperCaseWords($group)
+                'Reiz\Rotuisfuntcs\Model\Product\Option\Type\\' . $this->string->upperCaseWords($group)
             );
         }
         throw new LocalizedException(__('The option type to get group instance is incorrect.'));

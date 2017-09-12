@@ -36,8 +36,8 @@ class CustomOptions extends \Magento\Catalog\Ui\DataProvider\Product\Form\Modifi
     // multiple
     const GRID_TYPE_SELECT_CUSTOM = 'cusValues';
     // field simples
-    const FIELD_TYPE_WEIGHT_ONE = 'one';
-    const FIELD_TYPE_WEIGHT_TWO = 'two';
+    const FIELD_TYPE_WEIGHT_ONE = 'fieldone';
+    const FIELD_TYPE_WEIGHT_TWO = 'fieldtwo';
     const FIELD_TYPE_IMG_URL = 'papels';
     /**#@-*/
  	public function modifyData(array $data)
@@ -329,10 +329,10 @@ class CustomOptions extends \Magento\Catalog\Ui\DataProvider\Product\Form\Modifi
             'arguments' => [
                 'data' => [
                     'config' => [
-                        'label' => __('Alto en: '),
+                        'label' => __('Field 1: '),
                         'componentType' => Field::NAME,
                         'formElement' => Input::NAME,
-                        'dataScope' => static::FIELD_SKU_NAME,
+                        'dataScope' => static::FIELD_TYPE_WEIGHT_ONE,
                         'dataType' => Text::NAME,
                         'sortOrder' => $sortOrder,
                     ],
@@ -346,10 +346,10 @@ class CustomOptions extends \Magento\Catalog\Ui\DataProvider\Product\Form\Modifi
             'arguments' => [
                 'data' => [
                     'config' => [
-                        'label' => __('Ancho en: '),
+                        'label' => __('Field 2: '),
                         'componentType' => Field::NAME,
                         'formElement' => Input::NAME,
-                        'dataScope' => static::FIELD_SKU_NAME,
+                        'dataScope' => static::FIELD_TYPE_WEIGHT_TWO,
                         'dataType' => Text::NAME,
                         'sortOrder' => $sortOrder,
                     ],

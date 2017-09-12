@@ -4,9 +4,9 @@
  * Visit my website: http://elreiz.com
  */
 
-namespace Reiz\Rotuisfuntcs\Api\Data
+namespace Reiz\Rotuisfuntcs\Api\Data;
 
-interface ProductCustomOptionInterfaceExtend extends Magento\Catalog\Api\Data\ProductCustomOptionInterface
+interface ProductCustomOptionInterface extends \Magento\Catalog\Api\Data\ProductCustomOptionInterface
 {
 	public function getWeightHeight();
 

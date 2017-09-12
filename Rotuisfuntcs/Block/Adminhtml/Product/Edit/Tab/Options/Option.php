@@ -24,7 +24,7 @@ class Option extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\O
         public function _construct()
         {
             parent::_construct();
-            $this->setTemplate('Magento_Catalog::product/edit/options/option.phtml');
+            $this->setTemplate('Reiz_Rotuisfuntcs::product/edit/options/option.phtml');
         }
 
     /**
@@ -68,7 +68,7 @@ class Option extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\O
             foreach ($optionsArr as $option) {
                 /* @var $option \Magento\Catalog\Model\Product\Option */
                 print_r($option);
-                
+
                 $this->setItemCount($option->getOptionId());
 
                 $value = [];
@@ -91,7 +91,7 @@ class Option extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\O
                     $value['scopeTitleDisabled'] = is_null($option->getStoreTitle()) ? 'disabled' : null;
                 }
 
-                if ($option->getGroupByType() == \Magento\Catalog\Model\Product\Option::OPTION_GROUP_SELECT) {
+                if ($option->getGroupByType() == \Reiz\Rotuisfuntcs\Model\Product\Option::OPTION_GROUP_SELECT) {
                     $i = 0;
                     $itemCount = 0;
                     foreach ($option->getValues() as $_value) {
@@ -146,6 +146,8 @@ class Option extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\O
                     $value['file_extension'] = $option->getFileExtension();
                     $value['image_size_x'] = $option->getImageSizeX();
                     $value['image_size_y'] = $option->getImageSizeY();
+                    $value['fieldone'] = $option->getWeightHeight();
+                    $value['fieldtwo'] = $option->getWeightWidth();
                     if ($this->getProduct()->getStoreId() != '0'
                         && $scope == \Magento\Store\Model\Store::PRICE_SCOPE_WEBSITE
                     ) {

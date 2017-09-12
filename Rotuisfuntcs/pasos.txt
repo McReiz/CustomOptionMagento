@@ -1,0 +1,31 @@
+1. Create the module
+
+2. Declare your new product option : app/code/Vendor/Module/etc/product_options.xml
+
+3. Add the new custom Option in Admin/Product :
+
+    Vendor\Module\Block\Adminhtml\Catalog\Product\Edit\Tab\Options\Type\Newtype.php
+    Vendor\Module\Block\Adminhtml\Catalog\Product\Edit\Tab\Options\Option.php to define the template
+    create the associated .phtml files
+
+Vendor/Module/view/adminhtml/templates/catalog/product/edit/options/type/newtype.phtml
+
+and
+
+Vendor/Module/view/adminhtml/templates/catalog/product/edit/options/option.phtml
+
+4. Add the new custom Option in Frontend Catalog :
+
+    Vendor\Module\Block\Catalog\Product\View\Options\Type\Newtype.php;
+    The associated template : Vendor/Module/view/frontend/templates/catalog/product/view/options/type/newtype.phtml
+    The layout definition : Vendor\Module\view\frontend\layout\catalog_product_view.xml
+
+5. the Models for all that
+
+    Vendor\Module\Model\Catalog\Product\Option\Type\Newtype.php
+    Vendor\Module\Model\Catalog\Product\Option.php
+    Vendor\Module\Model\Catalog\ResourceModel\Product\Option.php
+
+6. Extend Ui :
+
+    Vendor\Module\Ui\DataProvider\Catalog\Product\Form\Modifier\CustomOptions.php

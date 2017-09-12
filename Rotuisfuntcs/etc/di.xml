@@ -6,7 +6,7 @@
 	<preference 
 		for="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\CustomOptions" 
 		type="Reiz\Rotuisfuntcs\Ui\DataProvider\Product\Form\Modifier\CustomOptions" />
-	<preference 
+	<!--<preference 
 		for="Magento\Catalog\Model\Product\Option"
-		type="Reiz\Rotuisfuntcs\Model\Product\Option" />
+		type="Reiz\Rotuisfuntcs\Model\Product\Option" />-->
 </config>

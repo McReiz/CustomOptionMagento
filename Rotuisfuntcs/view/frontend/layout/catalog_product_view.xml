@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Product\View\Options" name="product.info.options" as="product_options" template="product/view/options.phtml">
+                <block class="Reiz\Rotuisfuntcs\Block\Product\View\Options\Type\Rotimpression" as="rotimpression" template="Reiz_Rotuisfuntcs::product/view/options/type/rotimpression.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

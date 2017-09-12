@@ -5,7 +5,7 @@
  */
 namespace Reiz\Rotuisfuntcs\Model\ResourceModel\Product;
 
-use Reiz\Rotuisfuntcs\Api\Data\ProductInterface;
+use Magento\Catalog\Api\Data\ProductInterface;
 
 /**
  * Catalog product custom option resource model
@@ -186,88 +186,5 @@ class Option extends \Magento\Catalog\Model\ResourceModel\Product\Option
         }
 
         return $this;
-    }
-
-    /**
-     * Duplicate custom options for product
-     *
-     * @param \Magento\Catalog\Model\Product\Option $object
-     * @param int $oldProductId
-     * @param int $newProductId
-     * @return \Magento\Catalog\Model\Product\Option
-     */
-    public function duplicate(\Reiz\Rotuisfuntcs\Model\Product\Option $object, $oldProductId, $newProductId)
-    {
-        $connection = $this->getConnection();
-
-        $optionsCond = [];
-        $optionsData = [];
-
-        // read and prepare original product options
-        $select = $connection->select()->from(
-            $this->getTable('catalog_product_option')
-        )->where(
-            'product_id = ?',
-            $oldProductId
-        );
-
-        $query = $connection->query($select);
-
-        while ($row = $query->fetch()) {
-            $optionsData[$row['option_id']] = $row;
-            $optionsData[$row['option_id']]['product_id'] = $newProductId;
-            unset($optionsData[$row['option_id']]['option_id']);
-        }
-
-        // insert options to duplicated product
-        foreach ($optionsData as $oId => $data) {
-            $connection->insert($this->getMainTable(), $data);
-            $optionsCond[$oId] = $connection->lastInsertId($this->getMainTable());
-        }
-
-        // copy options prefs
-        foreach ($optionsCond as $oldOptionId => $newOptionId) {
-            // title
-            $table = $this->getTable('catalog_product_option_title');
-
-            $select = $this->getConnection()->select()->from(
-                $table,
-                [new \Zend_Db_Expr($newOptionId), 'store_id', 'title']
-            )->where(
-                'option_id = ?',
-                $oldOptionId
-            );
-
-            $insertSelect = $connection->insertFromSelect(
-                $select,
-                $table,
-                ['option_id', 'store_id', 'title'],
-                \Magento\Framework\DB\Adapter\AdapterInterface::INSERT_ON_DUPLICATE
-            );
-            $connection->query($insertSelect);
-
-            // price
-            $table = $this->getTable('catalog_product_option_price');
-
-            $select = $connection->select()->from(
-                $table,
-                [new \Zend_Db_Expr($newOptionId), 'store_id', 'price', 'price_type']
-            )->where(
-                'option_id = ?',
-                $oldOptionId
-            );
-
-            $insertSelect = $connection->insertFromSelect(
-                $select,
-                $table,
-                ['option_id', 'store_id', 'price', 'price_type'],
-                \Magento\Framework\DB\Adapter\AdapterInterface::INSERT_ON_DUPLICATE
-            );
-            $connection->query($insertSelect);
-
-            $object->getValueInstance()->duplicate($oldOptionId, $newOptionId);
-        }
-
-        return $object;
     }
 }

@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$_option = $block->getOption();
+$class = ($_option->getIsRequire()) ? ' required' : '';
+?>
+Hello
+<div class="field <?php /* @escapeNotVerified */ echo $class ?>">
+    <label class="label" for="options_<?php /* @escapeNotVerified */ echo $_option->getId() ?>_text">
+        <span><?php echo $block->escapeHtml($_option->getTitle()) ?></span>
+        <?php /* @escapeNotVerified */ echo $block->getFormatedPrice() ?>
+    </label>
+
+    <div class="control">
+        <?php if ($_option->getType() == \Reiz\Rotuisfuntcs\Model\Product\Option::OPTION_TYPE_ROTIM): ?>
+            <?php $_textValidate = null;
+            if ($_option->getIsRequire()) {
+                $_textValidate['required'] = true;
+            }
+            if ($_option->getMaxCharacters()) {
+                $_textValidate['maxlength'] = $_option->getMaxCharacters();
+            }
+            ?>
+            Hello
+            <input type="text"
+                   id="options_<?php /* @escapeNotVerified */ echo $_option->getId() ?>_text"
+                   class="input-text product-custom-option"
+                   <?php if (!empty($_textValidate)) {?>
+                   data-validate="<?php echo  $block->escapeHtml(json_encode($_textValidate));?>"
+                   <?php } ?>
+                   name="options[<?php /* @escapeNotVerified */ echo $_option->getId() ?>]"
+                   data-selector="options[<?php /* @escapeNotVerified */ echo $_option->getId() ?>]"
+                   value="<?php echo $block->escapeHtml($block->getDefaultValue()) ?>"/>
+        <?php endif; ?>
+    </div>
+</div>

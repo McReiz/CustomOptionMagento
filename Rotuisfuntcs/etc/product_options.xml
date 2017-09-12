@@ -6,11 +6,11 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/product_options.xsd">
-	<option name="rotimpresion" label="Rotuislas - funciones simples" renderer="Reiz\Rotuislas\Block\Adminhtml\Product\Edit\Tab\Options\Type\RotImpresion">
+	<option name="rotimpresion" label="Rotuislas - funciones simples" renderer="Reiz\Rotuisfuntcs\Block\Adminhtml\Product\Edit\Tab\Options\Type\Rotimpression">
         <inputType name="medidas_options" label="Medidas" />
         
     </option>
-    <option name="rotimpresionselect" label="Rotuislas - funciones multiples" renderer="Reiz\Rotuislas\Block\Adminhtml\Product\Edit\Tab\Options\Type\RotuisMultiple">
-    	<inputType name="select_type_papel" label="Tipos de:" />
+    <option name="rotimpresionselect" label="Rotuislas - funciones multiples" renderer="Reiz\Rotuisfuntcs\Block\Adminhtml\Product\Edit\Tab\Options\Type\RotuisMultiple">
+    	<inputType name="papels" label="Tipos de:" />
     </option>
 </config>

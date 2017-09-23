@@ -9,4 +9,18 @@
 	<!--<preference 
 		for="Magento\Catalog\Model\Product\Option"
 		type="Reiz\Rotuisfuntcs\Model\Product\Option" />-->
+
+	<preference 
+			for="Reiz\Rotuisfuntcs\Api\Data\ProductCustomOptionInterface" 
+			type="Reiz\Rotuisfuntcs\Model\Product\Option" />
+
+	<type name="Magento\Catalog\Block\Product\View\Options">
+        <plugin name="Reiz_Rotuisfuntcs::Option"
+                type="Reiz\Rotuisfuntcs\Block\Product\View\Options"
+                sortOrder="1"/>
+    </type>
+    <!--<type name="Magento\Catalog\Model\Product\Option">
+    <plugin name="Reiz_Rotuisfuntcs_option" type="Reiz_Rotuisfuntcs\Plugin\Catalog\Model\Product\OptionPlugin"
+            sortOrder="1"/>
+	</type>-->
 </config>

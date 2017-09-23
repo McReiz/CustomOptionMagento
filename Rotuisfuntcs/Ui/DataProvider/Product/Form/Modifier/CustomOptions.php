@@ -266,7 +266,7 @@ class CustomOptions extends \Magento\Catalog\Ui\DataProvider\Product\Form\Modifi
                                     static::FIELD_MAX_CHARACTERS_NAME
                                 ]
                             ],
-                            'rotimpresion' => [
+                            'impression' => [
                                 'values' => ['medidas_options'],
                                 'indexes' => [
                                     static::CONTAINER_TYPE_STATIC_NAME,

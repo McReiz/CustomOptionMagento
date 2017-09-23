@@ -9,7 +9,7 @@
     <body>
         <referenceContainer name="content">
             <block class="Magento\Catalog\Block\Product\View\Options" name="product.info.options" as="product_options" template="product/view/options.phtml">
-                <block class="Reiz\Rotuisfuntcs\Block\Product\View\Options\Type\Rotimpression" as="rotimpression" template="Reiz_Rotuisfuntcs::product/view/options/type/rotimpression.phtml"/>
+                <block class="Reiz\Rotuisfuntcs\Block\Product\View\Options\Type\Impression" as="impression" template="Reiz_Rotuisfuntcs::product/view/options/type/impression.phtml"/>
             </block>
         </referenceContainer>
     </body>

@@ -8,21 +8,26 @@ namespace Reiz\Rotuisfuntcs\Api\Data;
 
 interface ProductCustomOptionInterface extends \Magento\Catalog\Api\Data\ProductCustomOptionInterface
 {
-	public function getWeightHeight();
-
-    /**
-     * @param string $imageSizeX
-     * @return $this
+     /**
+     * @return string|null
      */
-    public function setWeightHeight($wheight);
+	public function getWeightHeight();
 
     /**
      * @return string|null
      */
+    
     public function getWeightWidth();
 
     /**
-     * @param string $imageSizeY
+     * @param string $fieldone
+     * @return $this
+     */
+    public function setWeightHeight($fieldone);
+
+
+    /**
+     * @param string $wwidth
      * @return $this
      */
     public function setWeightWidth($wwidth);

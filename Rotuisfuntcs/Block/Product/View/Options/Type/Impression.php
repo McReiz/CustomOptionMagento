@@ -11,7 +11,7 @@
  */
 namespace Reiz\Rotuisfuntcs\Block\Product\View\Options\Type;
 
-class Rotimpression extends \Magento\Catalog\Block\Product\View\Options\AbstractOptions
+class Impression extends \Magento\Catalog\Block\Product\View\Options\AbstractOptions
 {
     /**
      * Returns default value to show in text input

@@ -7,35 +7,29 @@
 
 namespace Reiz\Rotuisfuntcs\Model\Product;
 
-use Reiz\Rotuisfuntcs\Api\Data\ProductCustomOptionInterface;
-use Magento\Catalog\Api\Data\ProductCustomOptionValuesInterface;
-use Magento\Catalog\Api\Data\ProductInterface;
-use Magento\Catalog\Model\Product;
-use Magento\Catalog\Model\ResourceModel\Product\Option\Value\Collection;
-use Magento\Catalog\Pricing\Price\BasePrice;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\Model\AbstractExtensibleModel;
-use Magento\Framework\EntityManager\MetadataPool;
-
-class Option extends \Magento\Catalog\Model\Product\Option implements ProductCustomOptionInterface
+/**
+ * Catalog product option model
+ *
+ * @method \Magento\Catalog\Model\ResourceModel\Product\Option getResource()
+ * @method int getProductId()
+ * @method \Magento\Catalog\Model\Product\Option setProductId(int $value)
+ *
+ * @author      Magento Core Team <core@magentocommerce.com>
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(PHPMD.ExcessivePublicCount)
+ */
+class Option extends \Magento\Catalog\Model\Product\Option
 {   
-    const OPTION_GROUP_ROTIM = 'impression';
+    const OPTION_GROUP_ROTIM = 'rotimpresion';
     const OPTION_TYPE_ROTIM = 'medidas_options';
 
     const KEY_WEIGHT_ONE = 'fieldone';
     const KEY_WEIGHT_TWO = 'fieldtwo';
     
-    public function __construct()
+    protected function _construct()
   {
-    parent::__construct();
+    parent::_construct();
   }
-  protected function _construct()
-    {
-        $this->_init('Reiz\Rotuisfuntcs\Model\ResourceModel\Product\Option');
-        parent::_construct();
-    }
-
-
 
     /**
      * Get group name of option by given option type
@@ -76,12 +70,6 @@ class Option extends \Magento\Catalog\Model\Product\Option implements ProductCus
     {
         $group = $this->getGroupByType($type);
         if (!empty($group)) {
-            /*$MagCag = 'Magento\Catalog';
-            $ReRuit = 'Reiz\Rotuisfuntcs';
-            $blockGroup = ($this->string->upperCaseWords($group) != self::OPTION_GROUP_ROTIM) ? $MagCag : $ReRuit;
-
-            //$end = $this->optionTypeFactory->create( $MagCag . '\Model\Product\Option\Type\\' . $this->string->upperCaseWords($group));*/
-
             return $this->optionTypeFactory->create(
                 'Magento\Catalog\Model\Product\Option\Type\\' . $this->string->upperCaseWords($group)
             );

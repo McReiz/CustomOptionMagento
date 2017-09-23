@@ -11,12 +11,12 @@
  */
 namespace Reiz\Rotuisfuntcs\Block\Adminhtml\Product\Edit\Tab\Options\Type;
 
-class Rotimpression extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\Type\AbstractType
+class Impression extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\Type\AbstractType
 {
     /**
      * @var string
      */
-    protected $_template = 'Reiz_Rotuisfuntcs::catalog/product/edit/options/type/rotimpression.phtml';
+    protected $_template = 'Reiz_Rotuisfuntcs::catalog/product/edit/options/type/impression.phtml';
     
  
 }
